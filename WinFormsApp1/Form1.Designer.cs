@@ -36,7 +36,9 @@
             this.timerClock = new System.Windows.Forms.Label();
             this.minuteOptions = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.breakOptions = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.breakTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // mainTimer
@@ -92,21 +94,35 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Minute Options:";
             // 
-            // comboBox1
+            // breakOptions
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(58, 516);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(242, 40);
-            this.comboBox1.TabIndex = 7;
+            this.breakOptions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.breakOptions.FormattingEnabled = true;
+            this.breakOptions.Location = new System.Drawing.Point(58, 516);
+            this.breakOptions.Name = "breakOptions";
+            this.breakOptions.Size = new System.Drawing.Size(242, 40);
+            this.breakOptions.TabIndex = 7;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(58, 481);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(159, 32);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Break Length:";
+            // 
+            // breakTimer
+            // 
+            this.breakTimer.Tick += new System.EventHandler(this.breakTimer_Tick);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(820, 617);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.breakOptions);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.minuteOptions);
             this.Controls.Add(this.timerClock);
@@ -130,6 +146,8 @@
         private System.Windows.Forms.Label timerClock;
         private System.Windows.Forms.ComboBox minuteOptions;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox breakOptions;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Timer breakTimer;
     }
 }
