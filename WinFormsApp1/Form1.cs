@@ -43,7 +43,6 @@ namespace WinFormsApp1
             timerEnd.Enabled = true;
 
             totalSeconds = (int) totalMinutes * 60;
-            Debug.WriteLine(totalSeconds);
             mainTimer.Enabled = true;
         }
 
@@ -60,7 +59,6 @@ namespace WinFormsApp1
             //everything is in milliseconds
             if(totalSeconds > 0)
             {
-                totalSeconds--;
                 totalSeconds--;
                 int minutes = (int) (totalSeconds / 3600.0 % 1 * 60);
                 int seconds = totalSeconds - (minutes * 60);
