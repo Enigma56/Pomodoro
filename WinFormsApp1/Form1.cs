@@ -5,19 +5,24 @@ using Timer = System.Windows.Forms.Timer;
 
 namespace WinFormsApp1
 {
+    //What are DataBindings?
+    //How to associate specific objects with others.
+        //Possibly by means of anchors?
     public partial class Form1 : Form //Partial just means it is one part of the whole class
     {
 
         private Array flowTimerOptions = new[] { 5, 10, 25, 45, 60};
         private Array breakTimerOptions = new[] { 1, 5, 10 };
 
-        private object selectedBreakTimer;
+        //private object selectedBreakTimer;
         private int flowTimerDuration;
 
         private int totalSeconds;
         public Form1()
         {
             InitializeComponent();
+
+            EnabledButtons = true;
         }
         
         
@@ -25,7 +30,10 @@ namespace WinFormsApp1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            timerEnd.Enabled = false;
+            SetVisibility();
+
+            //Handle other form loading
+            timerEnd.Enabled = true;
 
             foreach (var item in flowTimerOptions)
             {
@@ -42,9 +50,15 @@ namespace WinFormsApp1
         private void timerStart_Click(object sender, EventArgs e)
         {
             object totalMinutes = minuteOptions.SelectedItem;
-            
-            if (totalMinutes == null && selectedBreakTimer == null) {
-                MessageBox.Show("You must select a flow and break duration!");
+            object selectedBreakTimer = breakOptions.SelectedItem;
+
+            if (selectedBreakTimer is null) {
+                MessageBox.Show("You must select a break duration!");
+                return;
+            }
+
+            if (totalMinutes is null) {
+                MessageBox.Show("You must select a session duration!");
                 return;
             }
 
@@ -70,7 +84,7 @@ namespace WinFormsApp1
             if(totalSeconds > 0)
             {
                 totalSeconds--;
-                int minutes = (int) (totalSeconds / 3600.0 % 1 * 60);
+                int minutes = (int) (totalSeconds / 60);
                 int seconds = totalSeconds - (minutes * 60);
               
                 Debug.WriteLine(totalSeconds);
@@ -87,14 +101,13 @@ namespace WinFormsApp1
 
         private void breakTimer_Tick(object sender, EventArgs e)
         {
-            selectedBreakTimer = breakOptions.SelectedItem;
 
-            int totalSeconds = (int)selectedBreakTimer * 60;
+            //int totalSeconds = (int)selectedBreakTimer * 60;
 
             if (totalSeconds > 0)
             {
                 totalSeconds--;
-                int minutes = (int)(totalSeconds / 3600.0 % 1 * 60);
+                int minutes = (int)(totalSeconds / 60);
                 int seconds = totalSeconds - (minutes * 60);
 
                 Debug.WriteLine(totalSeconds);
@@ -108,6 +121,11 @@ namespace WinFormsApp1
                 mainTimer.Start();
                 totalSeconds = flowTimerDuration;
             }
+
+        }
+
+        private void oneMinuteIncrease_Click(object sender, EventArgs e) {
+            totalSeconds += 60;
         }
     }
 }

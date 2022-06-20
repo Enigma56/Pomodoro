@@ -39,6 +39,12 @@
             this.breakOptions = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.breakTimer = new System.Windows.Forms.Timer(this.components);
+            this.oneMinuteIncrease = new System.Windows.Forms.Button();
+            this.oneMinuteDecrease = new System.Windows.Forms.Button();
+            this.decreaseFiveSeconds = new System.Windows.Forms.Button();
+            this.fiveSecondIncrease = new System.Windows.Forms.Button();
+            this.decreaseThirtySeconds = new System.Windows.Forms.Button();
+            this.increaseThirtySeconds = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // mainTimer
@@ -70,7 +76,7 @@
             // 
             this.timerClock.AutoSize = true;
             this.timerClock.Font = new System.Drawing.Font("Franklin Gothic Medium", 48F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.timerClock.Location = new System.Drawing.Point(225, 216);
+            this.timerClock.Location = new System.Drawing.Point(190, 194);
             this.timerClock.Name = "timerClock";
             this.timerClock.Size = new System.Drawing.Size(399, 161);
             this.timerClock.TabIndex = 3;
@@ -116,11 +122,78 @@
             // 
             this.breakTimer.Tick += new System.EventHandler(this.breakTimer_Tick);
             // 
+            // oneMinuteIncrease
+            // 
+            this.oneMinuteIncrease.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.oneMinuteIncrease.Location = new System.Drawing.Point(223, 370);
+            this.oneMinuteIncrease.Name = "oneMinuteIncrease";
+            this.oneMinuteIncrease.Size = new System.Drawing.Size(82, 52);
+            this.oneMinuteIncrease.TabIndex = 9;
+            this.oneMinuteIncrease.Text = "+1 M";
+            this.oneMinuteIncrease.UseVisualStyleBackColor = true;
+            this.oneMinuteIncrease.Click += new System.EventHandler(this.oneMinuteIncrease_Click);
+            // 
+            // oneMinuteDecrease
+            // 
+            this.oneMinuteDecrease.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.oneMinuteDecrease.Location = new System.Drawing.Point(311, 370);
+            this.oneMinuteDecrease.Name = "oneMinuteDecrease";
+            this.oneMinuteDecrease.Size = new System.Drawing.Size(68, 52);
+            this.oneMinuteDecrease.TabIndex = 10;
+            this.oneMinuteDecrease.Text = "-1 M";
+            this.oneMinuteDecrease.UseVisualStyleBackColor = true;
+            // 
+            // decreaseFiveSeconds
+            // 
+            this.decreaseFiveSeconds.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.decreaseFiveSeconds.Location = new System.Drawing.Point(485, 370);
+            this.decreaseFiveSeconds.Name = "decreaseFiveSeconds";
+            this.decreaseFiveSeconds.Size = new System.Drawing.Size(68, 52);
+            this.decreaseFiveSeconds.TabIndex = 12;
+            this.decreaseFiveSeconds.Text = "-5 S";
+            this.decreaseFiveSeconds.UseVisualStyleBackColor = true;
+            // 
+            // fiveSecondIncrease
+            // 
+            this.fiveSecondIncrease.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.fiveSecondIncrease.Location = new System.Drawing.Point(410, 370);
+            this.fiveSecondIncrease.Name = "fiveSecondIncrease";
+            this.fiveSecondIncrease.Size = new System.Drawing.Size(68, 52);
+            this.fiveSecondIncrease.TabIndex = 11;
+            this.fiveSecondIncrease.Text = "+5 S";
+            this.fiveSecondIncrease.UseVisualStyleBackColor = true;
+            // 
+            // decreaseThirtySeconds
+            // 
+            this.decreaseThirtySeconds.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.decreaseThirtySeconds.Location = new System.Drawing.Point(485, 428);
+            this.decreaseThirtySeconds.Name = "decreaseThirtySeconds";
+            this.decreaseThirtySeconds.Size = new System.Drawing.Size(85, 52);
+            this.decreaseThirtySeconds.TabIndex = 14;
+            this.decreaseThirtySeconds.Text = "-30 S";
+            this.decreaseThirtySeconds.UseVisualStyleBackColor = true;
+            // 
+            // increaseThirtySeconds
+            // 
+            this.increaseThirtySeconds.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.increaseThirtySeconds.Location = new System.Drawing.Point(390, 428);
+            this.increaseThirtySeconds.Name = "increaseThirtySeconds";
+            this.increaseThirtySeconds.Size = new System.Drawing.Size(88, 52);
+            this.increaseThirtySeconds.TabIndex = 13;
+            this.increaseThirtySeconds.Text = "+30 S";
+            this.increaseThirtySeconds.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(820, 617);
+            this.Controls.Add(this.decreaseThirtySeconds);
+            this.Controls.Add(this.increaseThirtySeconds);
+            this.Controls.Add(this.decreaseFiveSeconds);
+            this.Controls.Add(this.fiveSecondIncrease);
+            this.Controls.Add(this.oneMinuteDecrease);
+            this.Controls.Add(this.oneMinuteIncrease);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.breakOptions);
             this.Controls.Add(this.label1);
@@ -145,9 +218,15 @@
         private System.Windows.Forms.Button timerEnd;
         private System.Windows.Forms.Label timerClock;
         private System.Windows.Forms.ComboBox minuteOptions;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label1; //"Minute Options"
         private System.Windows.Forms.ComboBox breakOptions;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label2; //"Break Length"
         private System.Windows.Forms.Timer breakTimer;
+        private System.Windows.Forms.Button oneMinuteIncrease;
+        private System.Windows.Forms.Button oneMinuteDecrease;
+        private System.Windows.Forms.Button decreaseFiveSeconds;
+        private System.Windows.Forms.Button fiveSecondIncrease;
+        private System.Windows.Forms.Button decreaseThirtySeconds;
+        private System.Windows.Forms.Button increaseThirtySeconds;
     }
 }
